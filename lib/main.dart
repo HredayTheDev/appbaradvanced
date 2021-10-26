@@ -4,14 +4,48 @@ void main() {
   runApp(MyApp());
 }
 
-Widget buildPage(String text) {
+Widget buildPage(String image, String text,String text2) {
   return
-  Center(
-    child: Text(
-      text,
-      style: TextStyle(fontSize: 28),
-    ),
-  );
+
+      // Center(
+      //   child: Text(
+      //     text,
+      //     style: TextStyle(fontSize: 28),
+      //   ),
+
+      // );
+
+      SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+        Image.asset(
+          image,
+          width: double.infinity,
+          fit: BoxFit.cover,
+          height: 345,
+          alignment: Alignment.center,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black),
+            ),
+          ),
+        ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+            text2,
+            style: TextStyle(fontSize: 18),
+        ),
+          ),
+          ],
+        ),
+      );
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +55,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
             title: Text("App Bar Advanced Features"),
@@ -55,24 +89,21 @@ class MyApp extends StatelessWidget {
               indicatorColor: Colors.white,
               indicatorWeight: 5,
               //If you want to extend more tabs u can use below line of codes
-            //  isScrollable: true,
+              //  isScrollable: true,
               tabs: [
                 Tab(
                   icon: Icon(Icons.home),
-                  text: "Home",
+                  text: "Hreday",
                 ),
                 Tab(
                   icon: Icon(Icons.person),
-                  text: "Person",
+                  text: "Salman",
                 ),
                 Tab(
                   icon: Icon(Icons.settings),
-                  text: "Setting",
+                  text: "Aamir",
                 ),
-                Tab(
-                  icon: Icon(Icons.notification_add),
-                  text: "Notifications",
-                )
+               
               ],
             ),
             //        brightness: Brightness.light,
@@ -81,10 +112,11 @@ class MyApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              buildPage("Home Page"),
-              buildPage("Profile"),
-              buildPage("Settings"),
-              buildPage("Notifications"),
+              buildPage('assets/hreday.jpg',"Hreday Sagar Chakraborty","Hreday Sagar Chakraborty born 26 November 1995 is an Indian actor, singer, director, filmmaker, and television talk show host. Through his career spanning over 30 years in Hindi films, Khan has established himself as one of the most popular and influential actors of Indian cinema.He has a large global following, especially in India and China, and has been described by Newsweek as biggest star in the world.Hreday Sagar Chakraborty born 26 November 1995 is an Indian actor, singer, director, filmmaker, and television talk show host. Through his career spanning over 30 years in Hindi films, Khan has established himself as one of the most popular and influential actors of Indian cinema.He has a large global following, especially in India and China, and has been described by Newsweek as biggest star in the world."),
+              buildPage('assets/sallu.jpg',"Salman Khan","Salman  Khan  born 14 March 1965) is an Indian actor, singer, director, filmmaker, and television talk show host. Through his career spanning over 30 years in Hindi films, Khan has established himself as one of the most popular and influential actors of Indian cinema.He has a large global following, especially in India and China, and has been described by Newsweek as biggest star in the world."),
+              buildPage('assets/aamir.jpg',"Aamir Khan","Mohammed Aamir Hussain Khan  born 14 March 1965) is an Indian actor, singer, director, filmmaker, and television talk show host. Through his career spanning over 30 years in Hindi films, Khan has established himself as one of the most popular and influential actors of Indian cinema.He has a large global following, especially in India and China, and has been described by Newsweek as biggest star in the world."),
+            
+            
             ],
           ),
         ),
